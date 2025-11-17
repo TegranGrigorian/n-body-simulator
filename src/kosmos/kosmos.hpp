@@ -10,7 +10,11 @@ class Kosmos {
             this -> bodies = InitalBodies;
 
         }
-
+        void calculate_forces(); // calculate forces between all bodies
+        void step(double time_delta); // step the simulation forward by time_delta seconds
+        const std::vector<Body> & get_bodies() const {
+            return bodies;
+        }
     private:
         void addBody(const Body & newBody) {
             bodies.push_back(newBody);

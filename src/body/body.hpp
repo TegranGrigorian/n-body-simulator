@@ -4,27 +4,41 @@
 // a body in 2d space time
 class Body {
     public:
-        float mass, x, y; // simple intristic
-        float v_x, v_y; // velocity in x and y vectors
-        float a_x, a_y; // acceleration in x and y vectors
-        float f_x, f_y; // force in x and y vectors
+        double mass, x, y; // simple intristic
+        double v_x, v_y; // velocity in x and y vectors
+        double a_x, a_y; // acceleration in x and y vectors
+        double f_x, f_y; // force in x and y vectors
 
-        Body(float mass, float x, float y, float v_x=0, float v_y = 0) {
-            // construct the intristic properties, no force or a yet because no "universe" exists
-            this -> mass = mass;
-            this -> x = x;
-            this -> y = y;
-            this -> v_x = v_x;
-            this -> v_y = v_y;
-        }
-    private:
-    void update(float time_delta) {
-        // update the position of the body based on its current acceleration and velocity
-        v_x += a_x * time_delta;
-        v_y += a_y * time_delta;
-        x += v_x * time_delta;
-        y += v_y * time_delta;
-    }
+        Body(double mass, double x, double y, double v_x=0, double v_y = 0);
+        // getters
+        double get_mass() const;
+        double get_x() const;
+        double get_y() const;
+        double get_v_x() const;
+        double get_v_y() const;
+        double get_a_x() const;
+        double get_a_y() const;
+        double get_f_x() const;
+        double get_f_y() const;
+
+        // setters
+        void set_x(double x);
+        void set_y(double y);
+        void set_v_x(double v_x);
+        void set_v_y(double v_y);
+        void set_f_x(double f_x);
+        void set_f_y(double f_y);
+        void set_a_x(double a_x);
+        void set_a_y(double a_y);
+
+        // more complex setters
+        void add_force(double f_x, double f_y);
+        void compute_acceleration(); // requires forces to be set
+        void reset_force(); // zero out forces
+        void step(double time_delta); // update position based on velocity and acceleration
+        void update(double time_delta); // first half of velocity verlet
+        void update_velocity(double time_delta); // second half of velocity verlet
+        private:
 };
 
 #endif
