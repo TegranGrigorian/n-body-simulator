@@ -1,4 +1,5 @@
 #include "orbit.h"
+#include "../constants.h"
 #include <cstdio>
 #include <cmath>
 
@@ -7,7 +8,7 @@ void test_orbit_simulation() {
     // Sun: 1.989×10³⁰ kg at origin
     // Earth: 5.972×10²⁴ kg at 1 AU with orbital velocity
     Body sun(1.989e30, 0.0, 0.0, 0.0, 0.0);
-    Body earth(5.972e24, 1.496e11, 0.0, 0.0, 29780.0);
+    Body earth(5.972e24, AU_M, 0.0, 0.0, 29780.0); // 29780 ms orbit vel
 
     std::vector<Body> bodies = { sun, earth };
     Kosmos kosmos(bodies);
@@ -37,9 +38,9 @@ void test_orbit_simulation() {
             double vel = sqrt(e.get_v_x() * e.get_v_x() + e.get_v_y() * e.get_v_y());
             
             printf("Day %3.0f: pos=(%.3e, %.3e) m, dist=%.3e m (%.2f AU), vel=%.0f m/s\n", 
-                   (step * time_step) / 86400.0, 
+                   (step * time_step) / DAY_TO_SECONDS,  // DAY_TO_SECONDS conversion
                    e.get_x(), e.get_y(), 
-                   dist, dist / 1.496e11,
+                   dist, dist / AU_M,
                    vel);
         }
     }
@@ -51,8 +52,8 @@ void test_orbit_simulation() {
                                   final_earth.get_y() * final_earth.get_y());
     
     printf("\nResults\n");
-    printf("Initial distance: %.3e m (%.3f AU)\n", initial_distance, initial_distance / 1.496e11);
-    printf("Final distance:   %.3e m (%.3f AU)\n", final_distance, final_distance / 1.496e11);
+    printf("Initial distance: %.3e m (%.3f AU)\n", initial_distance, initial_distance / AU_M);
+    printf("Final distance:   %.3e m (%.3f AU)\n", final_distance, final_distance / AU_M);
     printf("Distance change:  %.2f%%\n", 
            (final_distance - initial_distance) / initial_distance * 100);
 }
