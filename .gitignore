@@ -1,3 +1,21 @@
-.vscode
-*****/*.o
-*****/*.exe
+# IDE
+.vscode/
+.idea/
+
+# Compiled C++ files
+*.o
+*.so
+*.dylib
+*.exe
+nbody_simulator
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store

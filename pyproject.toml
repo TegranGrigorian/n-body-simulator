@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "pybind11>=2.10.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nbody-simulator"
+version = "0.1.0"
+description = "N-body gravitational simulator"
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    {name = "Tegran Grigorian", email = "tegrgrigoralt@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C++",
+]
+dependencies = [
+    "pybind11>=2.10.0",
+    "numpy>=1.20.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/TegranGrigorian/n-body-simulator"
+Repository = "https://github.com/TegranGrigorian/n-body-simulator"
