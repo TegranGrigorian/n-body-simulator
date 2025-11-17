@@ -7,4 +7,5 @@
 #define SOFTENING_LENGTH_SQ (SOFTENING_LENGTH * SOFTENING_LENGTH) // ill make clean code
 #define AU_M 1.496e11 // astronomical unit in meters
 #define DAY_TO_SECONDS 86400.0 // number of seconds in a day
+
 #endif // CONSTANTS_H
