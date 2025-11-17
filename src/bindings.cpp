@@ -59,6 +59,6 @@ PYBIND11_MODULE(_nbody_core, m) {
         });
     
     // Constants
-    m.attr("G_CONST") = 6.67430e-11;  // Gravitational constant
-    m.attr("AU") = 1.496e11;           // Astronomical unit in meters
+    m.attr("G_CONST") = 6.67430e-11; // big G
+m.attr("AU") = 1.496e11; // AU
 }
