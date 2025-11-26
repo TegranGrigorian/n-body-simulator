@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -fopenmp -O2
 
-OBJS = src/main.o src/body/body.o src/kosmos/kosmos.o src/test/orbit.o src/test/multithread.o
+OBJS = src/main.o src/body/body.o src/kosmos/kosmos.o src/test/orbit.o src/test/multithread.o src/test/solar_system.o
 
 all: nbody_simulator
 
@@ -23,8 +23,11 @@ src/test/orbit.o: src/test/orbit.cpp src/test/orbit.h
 src/test/multithread.o: src/test/multithread.cpp src/test/multithread.h
 	$(CXX) $(CXXFLAGS) -c src/test/multithread.cpp -o src/test/multithread.o
 
+src/test/solar_system.o: src/test/solar_system.cpp src/test/solar_system.h
+	$(CXX) $(CXXFLAGS) -c src/test/solar_system.cpp -o src/test/solar_system.o
+
 run: all
 	./nbody_simulator
 
 clean:
-	rm -f src/main.o src/body/body.o src/kosmos/kosmos.o src/test/orbit.o src/test/multithread.o nbody_simulator
+	rm -f src/main.o src/body/body.o src/kosmos/kosmos.o src/test/orbit.o src/test/multithread.o src/test/solar_system.o nbody_simulator
