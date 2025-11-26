@@ -1,5 +1,6 @@
 #include "test/orbit.h"
+#include "test/multithread.h"
 
 int main() {
-    test_orbit_simulation();
+    test_multithread_performance();
 }
