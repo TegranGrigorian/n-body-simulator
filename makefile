@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -fopenmp
 
 OBJS = src/main.o src/body/body.o src/kosmos/kosmos.o src/test/orbit.o
 
