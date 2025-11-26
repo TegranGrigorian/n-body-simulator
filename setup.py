@@ -16,6 +16,8 @@ ext_modules = [
         include_dirs=["src"],
         cxx_std=11,
         define_macros=[("VERSION_INFO", __version__)],
+        extra_compile_args=["-fopenmp"],  # Enable OpenMP multithreading
+        extra_link_args=["-fopenmp"],     # Link with OpenMP library
     ),
 ]
 
